@@ -23,5 +23,4 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency 'rspec'
   spec.add_development_dependency 'pry', '~> 0.9.12.6'
 
-  spec.add_runtime_dependency 'acts_as_versioned', '>= 0.2.3'
 end

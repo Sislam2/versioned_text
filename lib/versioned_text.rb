@@ -24,9 +24,9 @@ module VersionedText
 
     belongs_to :versionable, :polymorphic => true
 
-    default_scope order(:version)
-    scope :descending, lambda { reorder("version DESC") }
-    scope :versionable_finder, lambda {|auditable_id, auditable_type| where(:auditable_id => auditable_id, :auditable_type => auditable_type)}
+    default_scope { order(:version) }
+    scope :descending, -> { reorder("version DESC") }
+    scope :versionable_finder, ->(auditable_id, auditable_type) { where(:auditable_id => auditable_id, :auditable_type => auditable_type) }
 
     def blank?
       return self.text.blank?
